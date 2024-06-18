@@ -1,0 +1,26 @@
+****Java Script Execution Context*****
+we will know how the javaScript runs iternally.
+
+Types: 
+    Global Execution Context
+    Function Execution Context
+    Eval Execution Context(used in mongo db)
+
+
+steps of Execution:
+
+1 Global Execution 
+1.1 Memory Allocation phase
+    varaible = undefined 
+    function = defination (exact copy of original)
+1.2 code Execution 
+    ->actual Execution
+    ->value assignment
+    ->if there is any function call 
+      A new execution context/thread will create 
+        {
+            Allocation
+            execution
+        }
+        after return it will deleted 
+    ->Each time whenever any function is called a new execution environment is created 
