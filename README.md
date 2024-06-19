@@ -1,2 +1,3 @@
 # JavaSript
-code repo for ;earning Javascript series from you tube channel
+
+code repo for learning Javascript series from you tube channel
