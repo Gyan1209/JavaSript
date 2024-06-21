@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Event</title>
+</head>
+<body>
+    <h1>DSA and Development</h1>
+    <button id="stop">Stop</button>
+    <button id="start">Start</button>
+</body>
+<script>
+    // setTimeout(function(){
+    //     console.log("Gyan is SDE1")
+    // },2000)
+    // // setInterval(function(){
+    // //     console.log("Gyan is SDE1")
+    // // },2000)
+    // const ChangeText=function(){
+    //     document.querySelector('h1').innerText="Development and DSA";
+    // }
+    // const update=setTimeout(ChangeText,2000);
+    
+    let name;
+    document.querySelector('#start').addEventListener('click',()=>{
+        name=setInterval(() => {
+        console.log("Gyanendra");
+    }, 1000);
+    })
+
+    document.querySelector('#stop').addEventListener('click',()=>{
+        clearInterval(name);
+    })
+
+    
+</script>
+</html>
