@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMLHTTP Request</title>
+</head>
+
+<body>
+    <!-- <p>this page to learn XML HTTP Request</p> -->
+    <div class="card" style="width: 10rem;">
+        <img  class="card-img-top" alt="Profile">
+        <div class="card-body">
+            <button>Show Repo Count</button>      
+            <p id="repo-Count"> </p>
+        </div>
+      </div>
+</body>
+
+<script>
+    const requestURL="https://api.github.com/users/Gyan1209"
+    const xhr=new XMLHttpRequest();
+    // console.log(xhr.readyState);  // Status: UNSENT => Client has been created. open() not called yet.
+    xhr.open('GET',requestURL);
+    // console.log(xhr.readyState); //OPENED	open() has been called.
+    xhr.send();;
+    let response;
+    const showRepoCount= function(repoCount){
+        document.querySelector('#repo-Count').innerHTML=`No of Public Repos: ${repoCount}`;
+    }
+    xhr.onreadystatechange=function(){
+        /*
+        2. HEADERS_RECEIVED	=> send() has been called, and headers and status are available.
+        3	LOADING	Downloading => responseText holds partial data.
+        4	DONE =>	The operation is complete.
+        */
+        // console.log(xhr.readyState); 
+        if(xhr.readyState===4){
+            response=JSON.parse(this.responseText);
+            // console.log(this.responseText);
+            // console.log(response);
+            // console.log(response.followers);
+            let profileImg=response.avatar_url;
+            let repoCount=response.public_repos;
+            document.querySelector('.card-img-top').src=profileImg;
+            document.querySelector('button').addEventListener('click',function(){
+                showRepoCount(repoCount);
+            })
+        }
+    }
+    
+    
+    
+</script>
+</html>
